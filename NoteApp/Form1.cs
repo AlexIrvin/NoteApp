@@ -25,9 +25,12 @@ namespace NoteApp
         {
             table = new DataTable();
             table.Columns.Add("Title", typeof(String));
-            table.Columns.Add("Message", typeof(String));
+            table.Columns.Add("Messages", typeof(String));
 
             dataGridView1.DataSource = table;
+
+            dataGridView1.Columns["Messages"].Visible = false;
+            dataGridView1.Columns["Title"].Width = 240;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -65,6 +68,11 @@ namespace NoteApp
             int index = dataGridView1.CurrentCell.RowIndex;
 
             table.Rows[index].Delete();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
